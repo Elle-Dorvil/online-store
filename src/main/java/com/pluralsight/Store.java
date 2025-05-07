@@ -39,9 +39,9 @@ public class Store {
                 case 1:
                     displayProducts(inventory, cart, scanner);
                     break;
-//                case 2:
-//                    displayCart(cart, scanner, totalAmount);
-//                    break;
+                case 2:
+                    displayCart(cart, scanner, totalAmount);
+                    break;
                 case 3:
                     System.out.println("Thank you for shopping with us!");
                     break;
@@ -83,6 +83,10 @@ public class Store {
         // prompt the user to enter the ID of the product they want to add to
         // their cart. The method should
         // add the selected product to the cart ArrayList.
+        for (Product product : inventory) {
+            System.out.println(product.toString());
+
+        }
         String productId = scanner.nextLine();
         System.out.println("Please add your item to the cart: ");
         scanner.nextLine();
@@ -109,13 +113,13 @@ public class Store {
 //        // prompt the user to remove items from their cart by entering the ID
 //        // of the product they want to remove. The method should update the cart ArrayList and totalAmount
 //        // variable accordingly.
-//        String
-//        for (Product product : cart) {
-//            System.out.println(product);
-//            System.out.printf(" %-30s %-20s %-10s%n", "Product Id", "Product Name", "Price");
-//
-//        }
-//    }
+        String
+        for (Product product : cart) {
+            System.out.println(product);
+            System.out.printf(" %-30s %-20s %-10s%n", "Product Id", "Product Name", "Price");
+
+        }
+    }
 //
 //    public static void checkOut(ArrayList<Product> cart, double totalAmount) {
 //        // This method should calculate the total cost of all items in the cart,
