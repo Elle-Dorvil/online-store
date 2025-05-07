@@ -1,5 +1,11 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -55,6 +61,27 @@ public class Store {
         //
         // where id is a unique string identifier, name is the product name,
         // price is a double value representing the price of the product
+        String line;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\\|");
+                String productId = parts[0];
+                String productName = parts[1];
+                double price = Double.parseDouble(parts[2]);
+
+                inventory.add(new Product(productId, productName, price));
+
+            }
+            br.close();
+
+
+        } catch (Exception e) {
+            System.out.println("Invalid input. ");
+
+        }
+
+
     }
 
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
@@ -63,6 +90,21 @@ public class Store {
         // prompt the user to enter the ID of the product they want to add to
         // their cart. The method should
         // add the selected product to the cart ArrayList.
+        System.out.println("Please add your item to the cart: ");
+        scanner.nextLine();
+        System.out.println("Please enter the Product Id: ");
+        scanner.nextLine();
+
+        for (Product product : inventory) {
+            System.out.println(product);
+            System.out.printf(" %-30s %-20s %-10s%n", "Product Id", "Product Name", "Price");
+
+            if (product.getProductId().equals(product) ) {
+                System.out.println(product);
+                
+            }
+
+        }
     }
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
